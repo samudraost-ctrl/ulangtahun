@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    overflow:hidden;
+    background:#000;
+    color:white;
+}
+
+.section{
+    position:absolute;
+    width:100%;
+    height:100vh;
+    top:0;
+    left:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+    padding:25px;
+    transition:1s;
+    background:linear-gradient(135deg,#ff4d6d,#ff758f,#ff8fa3);
+}
+
+.hidden{
+    opacity:0;
+    pointer-events:none;
+    transform:scale(1.1);
+}
+
+h1{
+    font-size:3rem;
+    margin-bottom:20px;
+    text-shadow:0 0 20px rgba(255,255,255,0.4);
+}
+
+p{
+    max-width:850px;
+    line-height:2;
+    font-size:1.1rem;
+    margin-bottom:30px;
+}
+
+button{
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    background:white;
+    color:#ff4d6d;
+    font-size:1rem;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+button:hover{
+    transform:scale(1.08);
+}
+
+.final-text{
+    font-size:2rem;
+    margin-top:25px;
+    font-weight:700;
+}
+
+.small{
+    margin-top:10px;
+    opacity:0.8;
+}
+
+a{
+    text-decoration:none;
+}
+
+.glow{
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+
+    from{
+        text-shadow:0 0 10px white;
+    }
+
+    to{
+        text-shadow:0 0 25px white;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MUSIK -->
+<audio id="bgMusic" loop autoplay>
+    <source src="musik.mp3" type="audio/mp3">
+</audio>
+
+<!-- HALAMAN 1 -->
+<section class="section" id="page1">
+
+    <h1 class="glow">Happy Birthday</h1>
+
+    <p>
+        Hari ini adalah hari yang sangat spesial,
+        karena seseorang yang begitu berarti lahir ke dunia ini.
+        Seseorang yang selalu berhasil membuat semuanya terasa lebih indah,
+        lebih tenang,
+        dan lebih berarti.
+        Terima kasih karena sudah hadir,
+        terima kasih karena sudah bertahan sejauh ini,
+        dan terima kasih karena selalu menjadi diri sendiri.
+    </p>
+
+    <button onclick="nextPage(1)">
+        Buka Pesan
+    </button>
+
+</section>
+
+<!-- HALAMAN 2 -->
+<section class="section hidden" id="page2">
+
+    <h1>Kamu Tau?</h1>
+
+    <p>
+        Dari begitu banyak manusia di dunia,
+        aku tidak pernah menyangka bisa mengenal seseorang seperti kamu.
+        Seseorang yang sederhana,
+        tetapi selalu punya cara untuk membuat hari terasa lebih baik.
+        Kadang hanya dengan hal kecil,
+        sebuah pesan singkat,
+        suara,
+        atau bahkan hanya kehadiranmu saja,
+        semuanya bisa membuat keadaan berubah menjadi lebih tenang.
+    </p>
+
+    <button onclick="nextPage(2)">
+        Lanjut
+    </button>
+
+</section>
+
+<!-- HALAMAN 3 -->
+<section class="section hidden" id="page3">
+
+    <h1>Untuk Kamu</h1>
+
+    <p>
+        Di hari ulang tahunmu ini,
+        aku cuma ingin kamu tahu kalau kamu adalah orang yang sangat berharga.
+        Semoga semua hal baik selalu datang menghampirimu.
+        Semoga langkahmu selalu dipenuhi kebahagiaan,
+        kesehatan,
+        dan keberuntungan.
+        Dan semoga semua mimpi yang sedang kamu perjuangkan perlahan bisa menjadi kenyataan.
+        Jangan terlalu keras pada diri sendiri,
+        karena kamu sudah melakukan yang terbaik sejauh ini.
+    </p>
+
+    <button onclick="nextPage(3)">
+        Ada Sesuatu
+    </button>
+
+</section>
+
+<!-- HALAMAN 4 -->
+<section class="section hidden" id="page4">
+
+    <h1 class="glow">
+        Special Video
+    </h1>
+
+    <p>
+        Aku menyiapkan sesuatu yang mungkin sederhana,
+        tapi semoga bisa membuatmu tersenyum hari ini.
+        Terima kasih untuk semua kenangan,
+        semua cerita,
+        dan semua hal yang pernah kita lewati bersama.
+    </p>
+
+    <!-- LINK VIDEO -->
+    <a href="https://drive.google.com/file/d/10bSvvGoSzIsVCdNfdrwuDvSeTnlXcfI-/view?usp=drivesdk"
+       target="_blank">
+
+        <button>
+            Putar Video
+        </button>
+
+    </a>
+
+    <div class="final-text">
+        Miss U More
+    </div>
+
+    <div class="small">
+        Dibuat khusus untuk seseorang yang spesial
+    </div>
+
+</section>
+
+<script>
+
+// AUTOPLAY MUSIK
+window.addEventListener('click', () => {
+
+    document.getElementById("bgMusic").play();
+
+}, { once:true });
+
+// PINDAH HALAMAN
+function nextPage(step){
+
+    document.getElementById("page"+step)
+    .classList.add("hidden");
+
+    document.getElementById("page"+(step+1))
+    .classList.remove("hidden");
+
+}
+
+</script>
+
+</body>
+</html>
