@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -46,7 +47,7 @@ body{
 h1{
     font-size:3rem;
     margin-bottom:20px;
-    text-shadow:0 0 15px rgba(255,255,255,0.5);
+    text-shadow:0 0 20px rgba(255,255,255,0.4);
 }
 
 p{
@@ -57,7 +58,7 @@ p{
 }
 
 button{
-    padding:14px 35px;
+    padding:15px 35px;
     border:none;
     border-radius:50px;
     background:white;
@@ -81,108 +82,135 @@ button:hover{
 }
 
 @keyframes fall{
+
     0%{
         transform:translateY(-10vh) rotate(0deg);
     }
+
     100%{
         transform:translateY(110vh) rotate(360deg);
     }
-}
 
-.video-box{
-    width:90%;
-    max-width:900px;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 15px 40px rgba(0,0,0,0.4);
-}
-
-video{
-    width:100%;
-    display:block;
 }
 
 .final-text{
     font-size:2rem;
-    font-weight:700;
     margin-top:25px;
+    font-weight:700;
 }
 
 .small{
-    font-size:0.95rem;
-    opacity:0.9;
     margin-top:10px;
+    opacity:0.8;
 }
+
+a{
+    text-decoration:none;
+}
+
+.glow{
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+
+    from{
+        text-shadow:0 0 10px white;
+    }
+
+    to{
+        text-shadow:0 0 25px white;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- Musik -->
-<audio id="bgMusic" loop>
-    <!-- GANTI LINK MP3 -->
+<!-- MUSIK -->
+<audio id="bgMusic" loop autoplay>
     <source src="musik.mp3" type="audio/mp3">
 </audio>
 
-<!-- STEP 1 -->
+<!-- HALAMAN 1 -->
 <section class="section" id="page1">
-    <h1>Happy Birthday ❤️</h1>
+
+    <h1 class="glow">Happy Birthday ❤️</h1>
+
     <p>
-        Hari ini adalah hari paling spesial,
-        karena seseorang yang sangat berarti lahir ke dunia...
+        Hari ini adalah hari yang sangat spesial...
+        karena seseorang yang sangat berarti lahir ke dunia ini ✨
     </p>
 
     <button onclick="nextPage(1)">
         Buka Pesan 💌
     </button>
+
 </section>
 
-<!-- STEP 2 -->
+<!-- HALAMAN 2 -->
 <section class="section hidden" id="page2">
+
     <h1>Kamu Tau Ga? 🌹</h1>
 
     <p>
         Dari banyaknya manusia di dunia,
-        aku bersyukur bisa mengenal kamu...
-        seseorang yang selalu berhasil membuat hariku lebih indah.
+        aku bersyukur bisa mengenal kamu ❤️
     </p>
 
     <button onclick="nextPage(2)">
         Lanjut ❤️
     </button>
+
 </section>
 
-<!-- STEP 3 -->
+<!-- HALAMAN 3 -->
 <section class="section hidden" id="page3">
+
     <h1>Untuk Kamu ✨</h1>
 
     <p>
         Semoga semua hal baik selalu datang ke hidupmu,
-        panjang umur, sehat selalu,
-        dan semoga semua impianmu tercapai.
+        sehat selalu,
+        panjang umur,
+        dan semua impianmu tercapai ❤️
     </p>
 
     <button onclick="nextPage(3)">
         Ada Surprise 🎁
     </button>
+
 </section>
 
-<!-- VIDEO -->
+<!-- HALAMAN 4 -->
 <section class="section hidden" id="page4">
 
-    <div class="video-box">
-        <video controls autoplay>
-            <!-- GANTI VIDEO -->
-            <source src="video.mp4" type="video/mp4">
-        </video>
-    </div>
+    <h1 class="glow">
+        Surprise Untuk Kamu 🎬
+    </h1>
+
+    <p>
+        Aku sudah menyiapkan video spesial ini hanya untuk kamu ❤️
+    </p>
+
+    <!-- LINK VIDEO -->
+    <a href="https://drive.google.com/file/d/10bSvvGoSzIsVCdNfdrwuDvSeTnlXcfI-/view?usp=drivesdk"
+       target="_blank">
+
+        <button>
+            Putar Video ❤️
+        </button>
+
+    </a>
 
     <div class="final-text">
         I Love You ❤️
     </div>
 
     <div class="small">
-        Dibuat khusus untuk orang paling spesial ✨
+        Dibuat dengan penuh cinta ✨
     </div>
 
 </section>
@@ -191,9 +219,12 @@ video{
 
 // AUTOPLAY MUSIK
 window.addEventListener('click', () => {
+
     document.getElementById("bgMusic").play();
+
 }, { once:true });
 
+// PINDAH HALAMAN
 function nextPage(step){
 
     document.getElementById("page"+step)
@@ -204,7 +235,7 @@ function nextPage(step){
 
 }
 
-// EFEK LOVE
+// EFEK LOVE BERJATUHAN
 function createHeart(){
 
     const heart = document.createElement("div");
